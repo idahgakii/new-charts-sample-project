@@ -1,0 +1,42 @@
+<input type="radio" id="image" name="document_selection" value="image" [(ngModel)]="documentSelection">
+<label for="image">IMAGE</label><br>
+<input type="radio" id="pdf" name="document_selection" value="pdf" [(ngModel)]="documentSelection">
+<label for="pdf">PDF</label><br>
+<input type="radio" id="doc" name="document_selection" value="doc" [(ngModel)]="documentSelection">
+<label for="doc">DOC</label>
+
+<div style="margin: auto;height: 400px; width: 400px;">
+  <div id="chart-container" class="justify-content-center" #chartContainer>
+    <p-chart type="line"
+             [data]="basicData"
+             [options]="basicOptions"
+             [height]="'85%'">
+    </p-chart>
+
+    <p-chart type="bar"
+             [data]="basicData"
+             [options]="basicOptions"
+             [height]="'85%'">
+    </p-chart>
+
+    <table class="table table-bordered">
+      <tr class="table-primary">
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+      </tr>
+      <tr *ngFor="let user of USERS">
+        <th>{{user.id}}</th>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.phone}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+<button id="print-chart-btn" (click)="generateDocuments()">Print charts</button>
+<!--<button (click)="generateDocFromChart(DocumentType.IMAGE)">Change Data</button>-->
+
+
+
